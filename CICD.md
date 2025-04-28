@@ -64,7 +64,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-               git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/jaiswaladi246/Boardgame.git'
+               git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/sivakoppala/Boardgame.git'
             }
         }
         
@@ -121,7 +121,7 @@ pipeline {
             steps {
                script {
                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                            sh "docker build -t adijaiswal/boardshack:latest ."
+                            sh "docker build -t sivakoppala/boardshack:latest ."
                     }
                }
             }
@@ -137,7 +137,7 @@ pipeline {
             steps {
                script {
                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                            sh "docker push adijaiswal/boardshack:latest"
+                            sh "docker push sivakoppala/boardshack:latest"
                     }
                }
             }
